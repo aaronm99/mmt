@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.basket__body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid gray;
+  padding: 10px;
+}
+
+.item {
+  display: flex;
+  gap: 24px;
+  padding: 8px;
+}
+
+.item:not(:last-child) {
+  border-bottom: 3px dotted lightgray;
+}
+
+.basket__checkout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 12px;
+}
+
+.total__price {
+  font-size: 24px;
+  font-weight: bold;
+}
