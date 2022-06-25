@@ -1,7 +1,5 @@
 import React from "react";
-
 import { MdClose } from "react-icons/md";
-import { NumberInput } from "@mantine/core";
 
 const Basket = ({ changeQuantity, cart, clearQuantity }) => {
   const itemsPrice = cart.reduce((a, c) => a + c.price * c.quantity, 0);
@@ -12,12 +10,13 @@ const Basket = ({ changeQuantity, cart, clearQuantity }) => {
         {cart.map(cart => (
           <div className="item" key={cart.id}>
             <div className="item__name">{cart.name}</div>
-            <NumberInput
-              mt="sm"
+            <input
               min={0}
+              max={99}
+              type="number"
               className="item__quantity"
               value={cart.quantity}
-              onChange={event => changeQuantity(cart, event)}
+              onChange={event => changeQuantity(cart, event.target.value)}
             />
             <div className="item__details">
               <div className="item__price">
