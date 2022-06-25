@@ -1,8 +1,18 @@
 import React from "react";
 import { MdClose } from "react-icons/md";
 
-const Basket = ({ changeQuantity, cart, clearQuantity }) => {
+const Basket = ({ changeQuantity, cart, clearQuantity, currency }) => {
   const itemsPrice = cart.reduce((a, c) => a + c.price * c.quantity, 0);
+  let modifier = 1;
+  let symbol = "$";
+
+  if (currency == "pound") {
+    modifier = 0.815361;
+    symbol = "£";
+  } else if (currency == "euros") {
+    modifier = 0.94733575;
+    symbol = "€";
+  }
 
   return (
     <div className="basket__body">
@@ -20,7 +30,8 @@ const Basket = ({ changeQuantity, cart, clearQuantity }) => {
             />
             <div className="item__details">
               <div className="item__price">
-                ${(cart.quantity * cart.price).toFixed(2)}
+                {symbol}
+                {(cart.quantity * cart.price * modifier).toFixed(2)}
               </div>
               <div className="item__delete">
                 <MdClose />
@@ -30,7 +41,10 @@ const Basket = ({ changeQuantity, cart, clearQuantity }) => {
         ))}
       </div>
       <div className="basket__checkout">
-        <div className="total__price">${itemsPrice.toFixed(2)}</div>
+        <div className="total__price">
+          {symbol}
+          {(itemsPrice * modifier).toFixed(2)}
+        </div>
         <div className="checkout__buttons">
           <button className="clear__btn" onClick={clearQuantity}>
             Clear

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import Basket from "./components/Basket";
+import Currency from "./components/Currency";
 import { items } from "./data";
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [currency, setCurrency] = useState("");
 
   useEffect(() => {
     setCart(items);
@@ -55,7 +57,9 @@ function App() {
         cart={cart}
         items={items}
         clearQuantity={clearQuantity}
+        currency={currency}
       />
+      <Currency currency={currency} setCurrency={setCurrency} />
     </div>
   );
 }
