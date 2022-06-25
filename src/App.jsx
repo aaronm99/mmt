@@ -10,22 +10,35 @@ function App() {
   }, []);
 
   const changeQuantity = (drink, quantity) => {
-    setCart(
-      cart.map(item =>
-        item.id === drink.id
-          ? {
-              ...item,
-              quantity: +quantity,
-            }
-          : item
-      )
-    );
+    if (quantity > 99) {
+      setCart(
+        cart.map(item =>
+          item.id === drink.id
+            ? {
+                ...item,
+                quantity: 99,
+              }
+            : item
+        )
+      );
+    } else {
+      setCart(
+        cart.map(item =>
+          item.id === drink.id
+            ? {
+                ...item,
+                quantity: +quantity,
+              }
+            : item
+        )
+      );
+    }
   };
 
   const clearQuantity = () => {
     setCart(
       cart.map(item =>
-        item.id != 0
+        item.id !== 0
           ? {
               ...item,
               quantity: 0,
