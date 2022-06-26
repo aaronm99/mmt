@@ -17,6 +17,8 @@ button {
   margin-top: 0;
 }
 
+/* BASKET */
+
 .basket__body {
   position: absolute;
   top: 50%;
@@ -137,4 +139,14 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+/* CURRENCY */
+
+.currency__select {
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  font-size: 40px;
+  margin: 10px;
 }
