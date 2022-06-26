@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Currency = ({ currency, setCurrency }) => {
+const Currency = ({ setCurrency }) => {
   return (
     <div>
       <select
-        name="pets"
-        id="pet-select"
+        name="currency"
+        id="currency-select"
+        className="currency__select"
         onChange={e => {
           const selectedCurrency = e.target.value;
           setCurrency(selectedCurrency);

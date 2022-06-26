@@ -2,10 +2,14 @@ import React from "react";
 import { MdClose } from "react-icons/md";
 
 const Basket = ({ changeQuantity, cart, clearQuantity, currency }) => {
+  // calculate grand total
   const itemsPrice = cart.reduce((a, c) => a + c.price * c.quantity, 0);
+
+  // default currency
   let modifier = 1;
   let symbol = "$";
 
+  // currency conversion
   if (currency == "pound") {
     modifier = 0.815361;
     symbol = "£";

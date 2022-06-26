@@ -7,11 +7,14 @@ function App() {
   const [cart, setCart] = useState([]);
   const [currency, setCurrency] = useState("");
 
+  // sets the basket to the data from data.js
   useEffect(() => {
     setCart(items);
   }, []);
 
+  // function to change quantity
   const changeQuantity = (drink, quantity) => {
+    // max quantity is 99
     if (quantity > 99) {
       setCart(
         cart.map(item =>
@@ -37,6 +40,7 @@ function App() {
     }
   };
 
+  // sets all quantities to 0
   const clearQuantity = () => {
     setCart(
       cart.map(item =>
